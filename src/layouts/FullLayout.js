@@ -6,22 +6,22 @@ import { Container } from "reactstrap";
 const FullLayout = () => {
   return (
     <main>
-      <div className="pageWrapper d-lg-flex">
+      {/* <div className="pageWrapper d-lg-flex"> */}
         {/********Sidebar**********/}
-        <aside className="sidebarArea shadow" id="sidebarArea">
+        {/* <aside className="sidebarArea shadow" id="sidebarArea">
           <Sidebar />
-        </aside>
+        </aside> */}
         {/********Content Area**********/}
 
         <div className="contentArea">
           {/********header**********/}
           <Header />
           {/********Middle Content**********/}
-          <Container className="p-4 wrapper" fluid>
+          <Container className="p-4" fluid>
             <Outlet />
           </Container>
         </div>
-      </div>
+      {/* </div> */}
     </main>
   );
 };

@@ -7,12 +7,7 @@ import TopCards from "../components/dashboard/TopCards";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-
-
-
-
 const Starter = () => {
-
   const [data, setData] = useState({});
 
   useEffect(() => {
@@ -34,7 +29,10 @@ const Starter = () => {
     return () => clearInterval(intervalId);
   }, []);
 
-
+  // Helper function to determine the text color based on value
+  const getTextColor = (value) => {
+    return value < 0 ? "text-danger" : ""; // Return "text-danger" class for negative values
+  };
 
   return (
     <div>
@@ -47,6 +45,7 @@ const Starter = () => {
             subtitle="Discharge Pressure"
             earning={data.DisPr / 10 + " Bar"}
             icon="bi bi-wallet"
+            color={getTextColor(data.DisPr / 10)}
           />
         </Col>
         <Col sm="6" lg="3">
@@ -56,6 +55,7 @@ const Starter = () => {
             subtitle="Temperature"
             earning={data.DisTr + "°"}
             icon="bi bi-thermometer-high"
+            color={getTextColor(data.DisTr)}
           />
         </Col>
         <Col sm="6" lg="3">
@@ -65,6 +65,7 @@ const Starter = () => {
             subtitle="Cumulative Run Hours"
             earning={parseInt(data.CumUnload / 60 + data.CumLoad / 60) + " Hr"}
             icon="bi bi-hourglass"
+            color={getTextColor(parseInt(data.CumUnload / 60 + data.CumLoad / 60))}
           />
         </Col>
         <Col sm="6" lg="3">
@@ -74,7 +75,7 @@ const Starter = () => {
             subtitle="Cumulative Load Hours"
             earning={parseInt(data.CumLoad / 60) + " Hr"}
             icon="bi bi-hourglass"
-
+            color={getTextColor(parseInt(data.CumLoad / 60))}
           />
         </Col>
         <Col sm="6" lg="3">
@@ -84,6 +85,7 @@ const Starter = () => {
             subtitle="Cumulative Unload Hours"
             earning={parseInt(data.CumUnload / 60) + " Hr"}
             icon="bi bi-lightning"
+            color={getTextColor(parseInt(data.CumUnload / 60))}
           />
         </Col>
         <Col sm="6" lg="3">
@@ -93,7 +95,7 @@ const Starter = () => {
             subtitle="Air Filter Change Time"
             earning={data.RemAFCT + " Hr"}
             icon="bi bi-hourglass"
-          
+            color={getTextColor(data.RemAFCT)}
           />
         </Col>
         <Col sm="6" lg="3">
@@ -103,8 +105,7 @@ const Starter = () => {
             subtitle="Oil Filter Change Time"
             earning={data.RemOFCT + " Hr"}
             icon="bi bi-hourglass"
-            color={data.RemOFCT < 100 ? "text-danger" : "text-black"}
-            
+            color={getTextColor(data.RemOFCT)}
           />
         </Col>
         <Col sm="6" lg="3">
@@ -114,7 +115,7 @@ const Starter = () => {
             subtitle="Oil Sept Change Time"
             earning={data.RemOSCT + " Hr"}
             icon="bi bi-hourglass"
-            
+            color={getTextColor(data.RemOSCT)}
           />
         </Col>
         <Col sm="6" lg="3">
@@ -124,6 +125,7 @@ const Starter = () => {
             subtitle="Oil Change Time"
             earning={data.RemOCT + " Hr"}
             icon="bi bi-hourglass"
+            color={getTextColor(data.RemOCT)}
           />
         </Col>
         <Col sm="6" lg="3">
@@ -133,6 +135,7 @@ const Starter = () => {
             subtitle="Greesing Time"
             earning={data.RemRGT + " Hr"}
             icon="bi bi-hourglass"
+            color={getTextColor(data.RemRGT)}
           />
         </Col>
         <Col sm="6" lg="3">
@@ -142,6 +145,7 @@ const Starter = () => {
             subtitle="PowerVFD"
             earning={data.PowerVFD / 100 + " KW"}
             icon="bi bi-power"
+            color={getTextColor(data.PowerVFD / 100)}
           />
         </Col>
         <Col sm="6" lg="3">
@@ -151,6 +155,7 @@ const Starter = () => {
             subtitle="VoltageVFD"
             earning={data.VoltageVFD / 10}
             icon="bi bi-bag"
+            color={getTextColor(data.VoltageVFD / 10)}
           />
         </Col>
         <Col sm="6" lg="3">
@@ -160,9 +165,9 @@ const Starter = () => {
             subtitle="CurrentVFD"
             earning={(data.CurrentVFD / 100).toFixed(1) + " Amp"}
             icon="bi bi-lightning"
+            color={getTextColor(data.CurrentVFD / 100)}
           />
         </Col>
-        
       </Row>
       {/***Sales & Feed***/}
       <Row>
@@ -173,27 +178,12 @@ const Starter = () => {
           <Feeds />
         </Col>
       </Row>
-      {/***Table ***/}
+      {/***Table ***/} 
       <Row>
         <Col lg="12">
           <ProjectTables />
         </Col>
       </Row>
-      {/***Blog Cards***/}
-      {/* <Row>
-        <CardTitle tag="h2" className="mb-4">Air Alert Features</CardTitle>
-        {BlogData.map((blg, index) => (
-          <Col sm="6" lg="6" xl="3" key={index}>
-            <Blog
-              image={blg.image}
-              title={blg.title}
-              subtitle={blg.subtitle}
-              text={blg.description}
-              color={blg.btnbg}
-            />
-          </Col>
-        ))}
-      </Row> */}
     </div>
   );
 };
