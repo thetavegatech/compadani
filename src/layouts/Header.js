@@ -60,11 +60,11 @@ const Header = () => {
             </NavItem> */}
           </Nav>
           <Dropdown isOpen={dropdownOpen} toggle={toggleDropdown}>
-            <DropdownToggle color="primary">
+            <DropdownToggle color="white">
               <img
                 src={adanilogo}
                 alt="profile"
-                className="rounded-circle"
+                // className="rounded-circle"
                 width="80"
               />
             </DropdownToggle>
