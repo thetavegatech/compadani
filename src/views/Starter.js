@@ -275,9 +275,9 @@ const Starter = () => {
             <Table bordered>
               <thead>
                 <tr>
-                  <th style={{ color: "#FF0000" }}>High: {aggregatedData.VoltageVFD.high/10 || 'N/A'}</th>
-                  <th style={{ color: "#0a2351" }}>Average: {aggregatedData.VoltageVFD.average/10 || 'N/A'}</th>
-                  <th style={{ color: "#0FB814" }}>Low: {aggregatedData.VoltageVFD.low/10 || 'N/A'}</th>
+                  <th style={{ color: "#FF0000" }}>High: {(aggregatedData.VoltageVFD.high/10).toFixed(2) || 'N/A'}</th>
+                  <th style={{ color: "#0a2351" }}>Average: {(aggregatedData.VoltageVFD.average/10).toFixed(2) || 'N/A'}</th>
+                  <th style={{ color: "#0FB814" }}>Low: {(aggregatedData.VoltageVFD.low/10).toFixed(2) || 'N/A'}</th>
                 </tr>
               </thead>
             </Table>
