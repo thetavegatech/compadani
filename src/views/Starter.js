@@ -158,21 +158,21 @@ const Starter = () => {
 
 
 
-  if (loading) {
-    return (
-      <div style={{ textAlign: 'center', marginTop: '20px' }}>
-        <Spinner color="primary" />
-      </div>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <div style={{ textAlign: 'center', marginTop: '20px' }}>
+  //       <Spinner color="primary" />
+  //     </div>
+  //   );
+  // }
 
-  if (error) {
-    return (
-      <div style={{ textAlign: 'center', marginTop: '20px' }}>
-        <h4>{error}</h4>
-      </div>
-    );
-  }
+  // if (error) {
+  //   return (
+  //     <div style={{ textAlign: 'center', marginTop: '20px' }}>
+  //       <h4>{error}</h4>
+  //     </div>
+  //   );
+  // }
 
 
   return (
